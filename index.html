@@ -1,0 +1,98 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width,initial-scale=1" />
+  <meta name="theme-color" content="#0b0f16" />
+  <link rel="manifest" href="./manifest.webmanifest" />
+  <link rel="icon" href="./favicon.svg" />
+  <link rel="stylesheet" href="./styles.css" />
+  <title>Keyboard Tester</title>
+</head>
+
+<body>
+  <div id="app" class="theme-night">
+    <header class="topbar">
+      <div class="brand">
+        <div class="logo" aria-hidden="true">K</div>
+        <div class="brandText">
+          <div class="title">Keyboard Tester</div>
+        </div>
+      </div>
+
+      <div class="controls">
+        <button id="btnLive" class="pill status" type="button" title="Status">
+          <span class="dot" aria-hidden="true"></span>
+          <span id="liveLabel">Live</span>
+        </button>
+
+        <button id="btnCapture" class="pill" type="button">Capture: OFF</button>
+        <button id="btnMode" class="pill" type="button">Mode: Live</button>
+        <button id="btnClear" class="pill" type="button">Clear</button>
+
+
+        <button id="btnLayout" class="pill" type="button">Layout: 100%</button>
+        <button id="btnFps" class="pill" type="button">FPS mode: OFF</button>
+        <button id="btnGhost" class="pill" type="button">Ghosting</button>
+        <button id="btnGaming" class="pill" type="button">Gaming test</button>
+        <button id="btnStats" class="pill" type="button">Stats</button>
+        <button id="btnPdf" class="pill primary" type="button">Download report (PDF)</button>
+
+        <button id="btnLang" class="pill" type="button">EN</button>
+        <button id="btnPlatform" class="pill" type="button">Windows</button>
+
+        <button id="btnTheme" class="pill" type="button">Theme: Night</button>
+        <button id="btnFullscreen" class="pill" type="button">Fullscreen</button>
+        <button id="btnHelp" class="pill" type="button">Help</button>
+      </div>
+    </header>
+
+    <main class="stage" id="stage" tabindex="0">
+      <!-- HUD is a bar (doesn't cover the keyboard) -->
+      <section class="hudBar" id="hud" aria-label="HUD">
+        <div class="hudLeft">
+          <div class="hudKey" id="hudKey">—</div>
+          <div class="hudHint" id="hudHint">Click here and press any key</div>
+        </div>
+
+        <div class="hudMid">
+          <div class="hudRow"><span>event.key</span><span id="hudEventKey">—</span></div>
+          <div class="hudRow"><span>event.code</span><span id="hudEventCode">—</span></div>
+          <div class="hudRow"><span>keyCode</span><span id="hudKeyCode">—</span></div>
+          <div class="hudRow"><span>repeat</span><span id="hudRepeat">—</span></div>
+        </div>
+
+        <div class="hudRight">
+          <span class="hudChip" id="hudDown">down: 0</span>
+          <span class="hudChip" id="hudMax">max: 0</span>
+          <span class="hudChip" id="hudLatched">latched: 0</span>
+          <span class="hudChip" id="hudNet">online: yes</span>
+          <span class="hudChip" id="hudFocus">focus: yes</span>
+                  <span class="hudChip" id="hudFps">fps: —</span>
+</div>
+      </section>
+
+      <section class="keyboardWrap" aria-label="Keyboard stage">
+        <div class="keyboard" id="keyboard" aria-label="Keyboard"></div>
+      </section>
+    </main>
+
+    <!-- Single modal -->
+    <div id="modalRoot" class="modalRoot" hidden>
+      <div class="modalOverlay" id="modalOverlay" aria-hidden="true"></div>
+
+      <div class="modalPanel" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+        <button class="modalX" id="modalX" type="button" aria-label="Close">×</button>
+        <div class="modalTitle" id="modalTitle"></div>
+        <div class="modalBody" id="modalBody"></div>
+
+        <div class="modalActions">
+          <button class="pill primary" id="modalOk" type="button">OK</button>
+        </div>
+      </div>
+    </div>
+
+    <script src="./app.js" defer></script>
+  </div>
+</body>
+</html>
